@@ -1,17 +1,19 @@
 <?php
 namespace App\Http\Controllers;
+
+use App\Student;
 /**
-* Class StudentController
+* Class StudentsController
 * @package App\Http\Controllers
 */
-class StudentController
+class StudentsController
 {
-  /**
-  * GET /books
+/**
+  * GET /students
   * @return array
   */
   public function index()
   {
-    return [];
-    }
+    return Student::all();
+  }
 }

@@ -14,4 +14,4 @@
 $app->get('/', function () use ($app) {
   return $app->welcome();
 });
-$app->get('/student', 'StudentController@index');
+$app->get('/students', 'StudentsController@index');
