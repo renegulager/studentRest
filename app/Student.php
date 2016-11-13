@@ -9,4 +9,9 @@ class Student extends Model
     * @var array
     */
     protected $fillable = ['name', 'email', 'phonenumber'];
+
+  public function papers()
+  {
+    return $this->hasMany(Paper::class);
+  }
 }

@@ -12,22 +12,14 @@ class StudentsTableSeeder extends Seeder
   */
   public function run()
   {
+    factory(App\Student::class, 10)->create()->each(function ($student) {
+      $papersCount = rand(1, 5);
 
-    DB::table('students')->insert([
-    'name' => 'Jack øæålmedû',
-    'email' => 'strange.but.valid@hotmail.com',
-    'phonenumber' => '+452255-5548',
-    'created_at' => Carbon::now(),
-    'updated_at' => Carbon::now(),
-    ]);
-
-    DB::table('students')->insert([
-    'name' => 'Jill daa ØsterGårdé',
-    'email' => 'valid@gmail.com',
-    'phonenumber' => '004522552222',
-    'created_at' => Carbon::now(),
-    'updated_at' => Carbon::now(),
-    ]);
+      while ($papersCount > 0) {
+        $student->papers()->save(factory(App\Paper::class)->make());
+        $papersCount--;
+      }
+    });
 
     }
 }

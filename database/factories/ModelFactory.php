@@ -11,11 +11,17 @@
 |
 */
 
-$factory->define(App\User::class, function ($faker) {
+$factory->define(App\Student::class, function ($faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
-        'password' => str_random(10),
-        'remember_token' => str_random(10),
+        'phonenumber' => $faker->phonenumber,
+
+    ];
+});
+
+$factory->define(App\Paper::class, function ($faker) {
+    return [
+    'filename' => $faker->md5.".pdf",
     ];
 });
